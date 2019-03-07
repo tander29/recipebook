@@ -19,6 +19,7 @@ from django.urls import path
 from recipebook.models import Author, Recipe
 from . import views
 
+
 admin.site.register(Author)
 admin.site.register(Recipe)
 
@@ -26,5 +27,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('recipe/<int:recipe_id>/', views.recipe, name='recipe'),
-    path('author/<int:author_id>/', views.author, name='author')
+    path('author/<int:author_id>/', views.author, name='author'),
+    path('author/add/', views.add_author, name='add_author'),
+    path('recipe/add/', views.add_recipe, name='add_recipe'),
+    path('confirmation', views.add_recipe, name='add_recipe')
 ]
